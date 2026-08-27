@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>INSCRIÇõES tecnicos</title>
+    <!-- Título que aparece na aba do navegador e nos resultados de busca -->
+    
+    <!-- Google Fonts para tipografia refinada -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Importa a fonte Inter do Google Fonts com variações de peso (300 a 700) para uma tipografia moderna e profissional -->
+    
+    <!-- Font Awesome 6 (ícones) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Biblioteca de ícones vetoriais Font Awesome, usada para adicionar ícones visuais em toda a interface -->
+    
+   <link rel="stylesheet" href="formulario.css">
+</head>
+<body>
+     <div class="container">
+        <!-- Container principal que centraliza e limita a largura do conteúdo -->
+        
+        <header>
+            <!-- Cabeçalho da página com título e área do usuário -->
+            <h1><i class="fas fa-leaf"></i> C.C.M</h1>
+            <!-- Título com ícone de folha representando saúde e natureza -->
+            <p>Guia inteligente de serviços médicos · Dois Vizinhos/PR</p>
+            <!-- Subtítulo com localização -->
+            
+            <div id="userInfoArea" class="user-info hidden">
+                <!-- Área de informações do usuário logado, inicialmente escondida -->
+                <span class="user-email" id="userEmailDisplay"></span>
+                <!-- Span que exibirá o email do usuário -->
+                <button class="logout-btn" onclick="fazerLogout()"><i class="fas fa-sign-out-alt"></i> Sair</button>
+                <!-- Botão de logout com ícone e função associada -->
+            </div>
+        </header>
+
+        <div class="top-nav">
+            <!-- Barra de navegação superior com botões principais -->
+            <button id="loginButton" class="btn-secondary" onclick="abrirLogin()"><i class="fas fa-user-circle"></i> Entrar / Criar conta</button>
+            <!-- Botão de login, inicialmente visível quando usuário não está logado -->
+            <button class="btn-primary" onclick="abrirAgendamento()"><i class="fas fa-calendar-plus"></i> Agendar consulta</button>
+            <!-- Botão de agendamento, sempre visível -->
+        </div>
+
+        <div class="search-box">
+            <!-- Caixa de pesquisa para filtrar estabelecimentos -->
+            <i class="fas fa-search"></i>
+            <!-- Ícone de lupa -->
+            <input type="text" id="search" placeholder="Pesquise por unidade de saúde, hospital, farmácia ou posto...">
+            <!-- Campo de input para digitar o termo de busca -->
+        </div>
+</body>
+</html>
