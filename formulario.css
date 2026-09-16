@@ -1,551 +1,806 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* ============================================================
+   RESET GLOBAL
+   Remove margens e paddings padrão do navegador e padroniza
+   o box-sizing para que largura/altura incluam bordas e padding.
+   ============================================================ */
+* {
+    margin: 0;                      /* Remove margem padrão de TODOS os elementos */
+    padding: 0;                     /* Remove padding padrão de TODOS os elementos */
+    box-sizing: border-box;         /* Largura/altura incluem borda e padding */
+}
 
+/* ============================================================
+   BODY - ESTILO BASE DA PÁGINA
+   ============================================================ */
 body {
-    font-family: 'Inter', sans-serif;
-    background: #f0f4f8;
-    color: #1e2a3e;
-    line-height: 1.6;
+    font-family: 'Inter', sans-serif;         /* Fonte principal importada do Google Fonts */
+    background: #f0f4f8;                       /* Cor de fundo cinza-azulada suave */
+    color: #1e2a3e;                            /* Cor padrão do texto (azul-escuro) */
+    line-height: 1.6;                          /* Espaçamento entre linhas do texto */
 }
 
+/* ============================================================
+   CONTAINER - LIMITA E CENTRALIZA O CONTEÚDO
+   ============================================================ */
 .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 20px;
+    max-width: 1100px;              /* Largura máxima do conteúdo */
+    margin: 0 auto;                 /* Centraliza horizontalmente (0 em cima/baixo, auto nas laterais) */
+    padding: 0 20px;                /* Respiro lateral de 20px para telas pequenas */
 }
 
-/* ===== HEADER ===== */
+/* ============================================================
+   HEADER - CABEÇALHO COM GRADIENTE
+   ============================================================ */
 header {
-    background: linear-gradient(135deg, #0d3b4e 0%, #1a5d6e 40%, #1e6f5c 100%);
-    border-radius: 0 0 32px 32px;
-    padding: 32px 36px;
-    margin-bottom: 32px;
-    color: white;
-    box-shadow: 0 15px 30px -12px rgba(0,0,0,0.25);
-    text-align: center;
+    background: linear-gradient(135deg, #0d3b4e 0%, #1a5d6e 40%, #1e6f5c 100%); /* Gradiente diagonal de 3 cores */
+    border-radius: 0 0 32px 32px;   /* Arredonda apenas os cantos INFERIORES */
+    padding: 32px 36px;             /* Espaçamento interno: 32px vertical, 36px horizontal */
+    margin-bottom: 32px;            /* Espaço abaixo do header */
+    color: white;                   /* Texto branco */
+    box-shadow: 0 15px 30px -12px rgba(0,0,0,0.25); /* Sombra difusa abaixo */
+    text-align: center;             /* Centraliza o conteúdo textual */
 }
 
+/* Área superior do header - logo + título lado a lado */
 .header-top {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: flex;                  /* Ativa layout flexbox */
+    align-items: center;            /* Alinha itens verticalmente ao centro */
+    justify-content: center;        /* Centraliza itens horizontalmente */
+    gap: 20px;                      /* Espaço de 20px entre logo e título */
+    flex-wrap: wrap;                /* Permite quebra de linha em telas pequenas */
 }
 
+/* Círculo que contém a logo da escola */
 .logo-area {
-    background: white;
-    border-radius: 50%;
-    width: 72px;
-    height: 72px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1a5d6e;
-    flex-shrink: 0;
+    background: white;              /* Fundo branco */
+    border-radius: 50%;             /* Formato perfeitamente circular */
+    width: 72px;                    /* Largura fixa de 72px */
+    height: 72px;                   /* Altura fixa de 72px */
+    display: flex;                  /* Flexbox para centralizar conteúdo */
+    align-items: center;            /* Centraliza verticalmente */
+    justify-content: center;        /* Centraliza horizontalmente */
+    font-size: 2.5rem;              /* Tamanho da fonte caso use texto */
+    font-weight: 700;               /* Negrito */
+    color: #1a5d6e;                 /* Cor azul-petróleo */
+    flex-shrink: 0;                 /* Impede que o círculo encolha */
 }
 
+/* Título principal dentro do header */
 header h1 {
-    font-size: 1.7rem;
-    font-weight: 700;
-    letter-spacing: -0.3px;
-    text-align: left;
+    font-size: 1.7rem;              /* Tamanho do título (aprox. 27px) */
+    font-weight: 700;               /* Negrito */
+    letter-spacing: -0.3px;         /* Leve compactação entre letras */
+    text-align: left;               /* Alinhamento à esquerda */
 }
 
+/* Subtítulo pequeno dentro do h1 */
 header h1 small {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 400;
-    opacity: 0.8;
-    margin-top: 4px;
+    display: block;                 /* Ocupa linha inteira (quebra após) */
+    font-size: 0.75rem;             /* Fonte menor (12px) */
+    font-weight: 400;               /* Peso normal */
+    opacity: 0.8;                   /* 80% de opacidade (levemente transparente) */
+    margin-top: 4px;                /* Pequeno espaço acima */
 }
 
+/* Área de contatos da escola (endereço, telefone, etc.) */
 .school-contact {
-    margin-top: 18px;
-    display: flex;
-    justify-content: center;
-    gap: 32px;
-    flex-wrap: wrap;
-    font-size: 0.85rem;
-    opacity: 0.9;
+    margin-top: 18px;               /* Espaço acima */
+    display: flex;                  /* Flexbox */
+    justify-content: center;        /* Centraliza horizontalmente */
+    gap: 32px;                      /* Espaço de 32px entre itens */
+    flex-wrap: wrap;                /* Quebra linha se necessário */
+    font-size: 0.85rem;             /* Fonte pequena (aprox. 14px) */
+    opacity: 0.9;                   /* 90% de opacidade */
 }
 
+/* Cada item individual de contato */
 .school-contact span {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
+    display: inline-flex;           /* Flex inline (não quebra linha) */
+    align-items: center;            /* Alinha ícone e texto verticalmente */
+    gap: 6px;                       /* Espaço de 6px entre ícone e texto */
 }
 
-/* ===== SECTIONS ===== */
+/* ============================================================
+   SECTION-CARD - BLOCOS BRANCOS DE CONTEÚDO
+   ============================================================ */
 .section-card {
-    background: white;
-    border-radius: 24px;
-    padding: 32px;
-    margin-bottom: 28px;
-    box-shadow: 0 8px 28px -6px rgba(0,0,0,0.06);
-    border: 1px solid #e8eef3;
+    background: white;              /* Fundo branco */
+    border-radius: 24px;            /* Cantos arredondados */
+    padding: 32px;                  /* Espaçamento interno de 32px */
+    margin-bottom: 28px;            /* Espaço abaixo de cada card */
+    box-shadow: 0 8px 28px -6px rgba(0,0,0,0.06); /* Sombra sutil */
+    border: 1px solid #e8eef3;      /* Borda cinza-clara fina */
 }
 
+/* Cabeçalho interno de cada seção (ícone + título) */
 .section-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 28px;
-    border-left: 5px solid #1e6f5c;
-    padding-left: 20px;
+    display: flex;                  /* Flexbox */
+    align-items: center;            /* Centraliza verticalmente */
+    gap: 14px;                      /* Espaço entre ícone e título */
+    margin-bottom: 28px;            /* Espaço abaixo */
+    border-left: 5px solid #1e6f5c; /* Barra verde de 5px à esquerda */
+    padding-left: 20px;             /* Respiro após a barra */
 }
 
+/* Título da seção */
 .section-header h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #0d3b4e;
+    font-size: 1.5rem;              /* Tamanho do título (24px) */
+    font-weight: 700;               /* Negrito */
+    color: #0d3b4e;                 /* Cor azul-escura */
 }
 
+/* Ícone da seção */
 .section-header i {
-    font-size: 1.7rem;
-    color: #1e6f5c;
+    font-size: 1.7rem;              /* Tamanho do ícone */
+    color: #1e6f5c;                 /* Cor verde */
 }
 
-/* ===== FORM STYLES ===== */
+/* ============================================================
+   FORM-GRID - LAYOUT EM GRID PARA OS CAMPOS
+   ============================================================ */
 .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px 24px;
+    display: grid;                          /* Ativa grid layout */
+    grid-template-columns: 1fr 1fr;         /* Duas colunas de tamanhos iguais */
+    gap: 20px 24px;                         /* 20px entre linhas, 24px entre colunas */
 }
 
+/* Variação com 3 colunas */
 .form-grid.three-cols {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;     /* Três colunas iguais */
 }
 
+/* Grupo de campo (label + input) */
 .form-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
+    display: flex;                  /* Flexbox */
+    flex-direction: column;         /* Label em cima, input embaixo */
+    gap: 6px;                       /* Espaço de 6px entre label e input */
 }
 
+/* Campo que ocupa toda a largura do grid */
 .form-group.full-width {
-    grid-column: 1 / -1;
+    grid-column: 1 / -1;            /* Vai da primeira até a última coluna */
 }
 
+/* Label do campo */
 .form-group label {
-    font-weight: 600;
-    font-size: 0.82rem;
-    color: #3a5068;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    font-weight: 600;               /* Semi-negrito */
+    font-size: 0.82rem;             /* Fonte pequena (13px) */
+    color: #3a5068;                 /* Cor cinza-azulada */
+    text-transform: uppercase;      /* Texto em MAIÚSCULAS */
+    letter-spacing: 0.5px;          /* Espaço entre letras */
 }
 
+/* Inputs e selects do formulário */
 .form-group input,
 .form-group select {
-    padding: 12px 16px;
-    border: 1.5px solid #dce3ea;
-    border-radius: 14px;
-    font-size: 0.95rem;
-    font-family: 'Inter', sans-serif;
-    background: #fafbfc;
-    transition: 0.2s;
-    width: 100%;
+    padding: 12px 16px;             /* Espaçamento interno */
+    border: 1.5px solid #dce3ea;    /* Borda cinza-clara */
+    border-radius: 14px;            /* Cantos arredondados */
+    font-size: 0.95rem;             /* Tamanho do texto (15px) */
+    font-family: 'Inter', sans-serif; /* Fonte consistente */
+    background: #fafbfc;            /* Fundo quase branco */
+    transition: 0.2s;               /* Transição suave de 0.2s */
+    width: 100%;                    /* Ocupa toda a largura disponível */
 }
 
+/* Estado de foco dos inputs */
 .form-group input:focus,
 .form-group select:focus {
-    border-color: #1e6f5c;
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(30,111,92,0.15);
-    background: white;
+    border-color: #1e6f5c;          /* Borda verde ao focar */
+    outline: none;                  /* Remove contorno padrão do navegador */
+    box-shadow: 0 0 0 3px rgba(30,111,92,0.15); /* Anel verde translúcido */
+    background: white;              /* Fundo branco ao focar */
 }
 
+/* Placeholder dos inputs */
 .form-group input::placeholder {
-    color: #afbfcf;
+    color: #afbfcf;                 /* Cinza claro */
 }
 
-/* ===== RADIO/CHECKBOX COURSES ===== */
+/* ============================================================
+   COURSE-OPTIONS - CARTÕES DE SELEÇÃO DE CURSO
+   ============================================================ */
 .course-options {
-    display: flex;
-    gap: 24px;
-    flex-wrap: wrap;
-    margin-top: 8px;
+    display: flex;                  /* Flexbox */
+    gap: 24px;                      /* Espaço entre opções */
+    flex-wrap: wrap;                /* Quebra linha se necessário */
+    margin-top: 8px;                /* Espaço acima */
 }
 
+/* Cada opção individual */
 .course-option {
-    flex: 1;
-    min-width: 260px;
+    flex: 1;                        /* Ocupa espaço proporcional */
+    min-width: 260px;               /* Largura mínima para não espremer */
 }
 
+/* Esconde o radio original do navegador */
 .course-option input[type="radio"] {
-    display: none;
+    display: none;                  /* Não aparece na tela */
 }
 
+/* Label que representa visualmente o cartão */
 .course-option label {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 16px 20px;
-    border: 2px solid #dce3ea;
-    border-radius: 16px;
-    cursor: pointer;
-    transition: 0.2s;
-    font-weight: 500;
-    background: #fafbfc;
-    text-transform: none;
-    letter-spacing: 0;
-    font-size: 0.9rem;
+    display: flex;                  /* Flexbox */
+    align-items: center;            /* Alinha verticalmente */
+    gap: 12px;                      /* Espaço entre círculo e texto */
+    padding: 16px 20px;             /* Espaçamento interno */
+    border: 2px solid #dce3ea;      /* Borda cinza */
+    border-radius: 16px;            /* Cantos arredondados */
+    cursor: pointer;                /* Cursor de mãozinha */
+    transition: 0.2s;               /* Transição suave */
+    font-weight: 500;               /* Peso médio */
+    background: #fafbfc;            /* Fundo claro */
+    text-transform: none;           /* NÃO força maiúsculas */
+    letter-spacing: 0;              /* Sem espaçamento extra */
+    font-size: 0.9rem;              /* Tamanho do texto */
 }
 
+/* Hover do cartão */
 .course-option label:hover {
-    border-color: #87c7b3;
-    background: #f2faf7;
+    border-color: #87c7b3;          /* Borda verde-clara */
+    background: #f2faf7;            /* Fundo verde-claro */
 }
 
+/* Cartão quando o radio está marcado */
 .course-option input[type="radio"]:checked + label {
-    border-color: #1e6f5c;
-    background: #e6f4ef;
-    box-shadow:0 0 0 3px rgba(30,111,92,0.12);
-    font-weight: 700;
+    border-color: #1e6f5c;          /* Borda verde */
+    background: #e6f4ef;            /* Fundo verde-claro */
+    box-shadow: 0 0 0 3px rgba(30,111,92,0.12); /* Anel verde */
+    font-weight: 700;               /* Negrito */
 }
 
+/* Círculo customizado do radio */
 .course-option .radio-circle {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2px solid #b0c4d0;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: 0.2s;
+    width: 20px;                    /* Largura */
+    height: 20px;                   /* Altura */
+    border-radius: 50%;             /* Círculo perfeito */
+    border: 2px solid #b0c4d0;      /* Borda cinza-azulada */
+    display: inline-flex;           /* Flex inline */
+    align-items: center;            /* Centraliza verticalmente */
+    justify-content: center;        /* Centraliza horizontalmente */
+    flex-shrink: 0;                 /* Impede encolhimento */
+    transition: 0.2s;               /* Transição suave */
 }
 
+/* Círculo quando selecionado */
 .course-option input[type="radio"]:checked + label .radio-circle {
-    border-color: #1e6f5c;
-    background: #1e6f5c;
+    border-color: #1e6f5c;          /* Borda verde */
+    background: #1e6f5c;            /* Fundo verde */
 }
 
+/* Ponto branco interno do círculo quando selecionado */
 .course-option input[type="radio"]:checked + label .radio-circle::after {
-    content: '';
-    width: 8px;
-    height: 8px;
-    background: white;
-    border-radius: 50%;
+    content: '';                    /* Elemento vazio necessário para pseudo-elemento */
+    width: 8px;                     /* Largura do ponto */
+    height: 8px;                    /* Altura do ponto */
+    background: white;              /* Cor branca */
+    border-radius: 50%;             /* Círculo */
 }
 
-/* ===== SCORING TABLE ===== */
+/* ============================================================
+   SCORING-TABLE - TABELA DE PONTUAÇÃO
+   ============================================================ */
 .scoring-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 8px;
-    font-size: 0.9rem;
+    width: 100%;                    /* Ocupa toda a largura */
+    border-collapse: collapse;      /* Une bordas das células */
+    margin-top: 8px;                /* Espaço acima */
+    font-size: 0.9rem;              /* Tamanho do texto */
 }
 
+/* Células do cabeçalho e corpo */
 .scoring-table th,
 .scoring-table td {
-    padding: 12px 16px;
-    border: 1px solid #e2e9f0;
-    text-align: left;
+    padding: 12px 16px;             /* Espaçamento interno */
+    border: 1px solid #e2e9f0;      /* Borda cinza-clara */
+    text-align: left;               /* Alinhamento à esquerda */
 }
 
+/* Cabeçalho da tabela */
 .scoring-table th {
-    background: #eaf1f7;
-    font-weight: 700;
-    color: #1a3b4a;
-    font-size: 0.82rem;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    background: #eaf1f7;            /* Fundo azul-claro */
+    font-weight: 700;               /* Negrito */
+    color: #1a3b4a;                 /* Cor azul-escura */
+    font-size: 0.82rem;             /* Fonte pequena */
+    text-transform: uppercase;      /* MAIÚSCULAS */
+    letter-spacing: 0.5px;          /* Espaço entre letras */
 }
 
+/* Hover nas linhas da tabela */
 .scoring-table tr:hover td {
-    background: #f8fafb;
+    background: #f8fafb;            /* Fundo levemente destacado */
 }
 
+/* Inputs dentro da tabela */
 .scoring-table input {
-    width: 80px;
-    padding: 8px 12px;
-    border: 1.5px solid #dce3ea;
-    border-radius: 10px;
-    font-size: 0.9rem;
-    font-family: 'Inter', sans-serif;
-    text-align: center;
-    background: #fefefe;
+    width: 80px;                    /* Largura fixa */
+    padding: 8px 12px;              /* Espaçamento interno */
+    border: 1.5px solid #dce3ea;    /* Borda cinza */
+    border-radius: 10px;            /* Cantos arredondados */
+    font-size: 0.9rem;              /* Tamanho do texto */
+    font-family: 'Inter', sans-serif; /* Fonte consistente */
+    text-align: center;             /* Centraliza texto */
+    background: #fefefe;            /* Fundo quase branco */
 }
 
+/* Foco nos inputs da tabela */
 .scoring-table input:focus {
-    border-color: #1e6f5c;
-    outline: none;
-    box-shadow:0 0 0 2px rgba(30,111,92,0.2);
+    border-color: #1e6f5c;          /* Borda verde */
+    outline: none;                  /* Remove outline */
+    box-shadow: 0 0 0 2px rgba(30,111,92,0.2); /* Anel verde */
 }
 
+/* Células de destaque (médias) */
 .score-highlight {
-    background: #e6f4ef !important;
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: #1e6f5c;
+    background: #e6f4ef !important; /* Fundo verde-claro (força sobre outros) */
+    font-weight: 700;               /* Negrito */
+    font-size: 1.1rem;              /* Fonte maior */
+    color: #1e6f5c;                 /* Cor verde */
 }
 
+/* ============================================================
+   ORIGIN-OPTION - OPÇÕES DE ORIGEM ESCOLAR
+   ============================================================ */
 .origin-option {
-    margin-bottom: 12px;
+    margin-bottom: 12px;            /* Espaço abaixo de cada opção */
 }
 
+/* Radio da origem */
 .origin-option input[type="radio"] {
-    accent-color: #1e6f5c;
-    width: 16px;
-    height: 16px;
-    margin-right: 8px;
+    accent-color: #1e6f5c;          /* Cor verde do radio nativo */
+    width: 16px;                    /* Largura */
+    height: 16px;                   /* Altura */
+    margin-right: 8px;              /* Espaço à direita */
 }
 
+/* Label da origem */
 .origin-option label {
-    font-weight: 500;
-    font-size: 0.9rem;
-    cursor: pointer;
+    font-weight: 500;               /* Peso médio */
+    font-size: 0.9rem;              /* Tamanho do texto */
+    cursor: pointer;                /* Cursor de mãozinha */
 }
 
+/* ============================================================
+   NIS-FIELD - CAMPO CONDICIONAL DO NIS
+   ============================================================ */
 .nis-field {
-    display: none;
-    margin-top: 12px;
-    padding: 14px 18px;
-    background: #fef9f3;
-    border-radius: 12px;
-    border: 1px solid #f0d89c;
+    display: none;                  /* ESCONDIDO por padrão */
+    margin-top: 12px;               /* Espaço acima */
+    padding: 14px 18px;             /* Espaçamento interno */
+    background: #fef9f3;            /* Fundo bege claro */
+    border-radius: 12px;            /* Cantos arredondados */
+    border: 1px solid #f0d89c;      /* Borda dourada */
 }
 
+/* Quando a classe 'visible' é adicionada */
 .nis-field.visible {
-    display: block;
+    display: block;                 /* Torna VISÍVEL */
 }
 
+/* Label do NIS */
 .nis-field label {
-    font-weight: 600;
-    font-size: 0.85rem;
-    color: #7a5d10;
+    font-weight: 600;               /* Semi-negrito */
+    font-size: 0.85rem;             /* Fonte pequena */
+    color: #7a5d10;                 /* Cor marrom-dourada */
 }
 
+/* Input do NIS */
 .nis-field input {
-    margin-top: 6px;
-    width: 220px;
+    margin-top: 6px;                /* Espaço acima */
+    width: 220px;                   /* Largura fixa */
 }
 
-/* ===== BUTONS ===== */
+/* ============================================================
+   BOTÕES
+   ============================================================ */
 .btn-row {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 32px;
+    display: flex;                  /* Flexbox */
+    gap: 16px;                      /* Espaço entre botões */
+    justify-content: center;        /* Centraliza horizontalmente */
+    flex-wrap: wrap;                /* Quebra linha se necessário */
+    margin-top: 32px;               /* Espaço acima */
 }
 
+/* Estilo base compartilhado dos botões */
 .btn {
-    border: none;
-    padding: 14px 32px;
-    border-radius: 40px;
-    font-weight: 700;
-    font-size: 0.95rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Inter', sans-serif;
+    border: none;                   /* Sem borda padrão */
+    padding: 14px 32px;             /* Espaçamento interno */
+    border-radius: 40px;            /* Cantos bem arredondados (pílula) */
+    font-weight: 700;               /* Negrito */
+    font-size: 0.95rem;             /* Tamanho do texto */
+    cursor: pointer;                /* Cursor de mãozinha */
+    transition: all 0.2s ease;      /* Transição suave */
+    display: inline-flex;           /* Flex inline */
+    align-items: center;            /* Alinha verticalmente */
+    gap: 10px;                      /* Espaço entre ícone e texto */
+    font-family: 'Inter', sans-serif; /* Fonte consistente */
 }
 
+/* Botão SALVAR - verde */
 .btn-save {
-    background: #1e6f5c;
-    color: white;
-    box-shadow:0 6px 16px rgba(30,111,92,0.25);
+    background: #1e6f5c;            /* Fundo verde */
+    color: white;                   /* Texto branco */
+    box-shadow: 0 6px 16px rgba(30,111,92,0.25); /* Sombra verde */
 }
 
+/* Hover do botão salvar */
 .btn-save:hover {
-    background: #145244;
-    transform: translateY(-2px);
+    background: #145244;            /* Verde mais escuro */
+    transform: translateY(-2px);    /* Levanta 2px */
 }
 
+/* Botão IMPRIMIR - branco com borda verde */
 .btn-print {
-    background: white;
-    color: #1e6f5c;
-    border: 2px solid #1e6f5c;
+    background: white;              /* Fundo branco */
+    color: #1e6f5c;                 /* Texto verde */
+    border: 2px solid #1e6f5c;      /* Borda verde */
 }
 
+/* Hover do botão imprimir */
 .btn-print:hover {
-    background: #e6f4ef;
+    background: #e6f4ef;            /* Fundo verde-claro */
 }
 
+/* Botão LIMPAR - branco com borda rosada */
 .btn-clear {
-    background: white;
-    color: #8b6f6f;
-    border: 2px solid #e0cdcd;
+    background: white;              /* Fundo branco */
+    color: #8b6f6f;                 /* Texto marrom */
+    border: 2px solid #e0cdcd;      /* Borda rosada */
 }
 
+/* Hover do botão limpar */
 .btn-clear:hover {
-    background: #fdf5f5;
+    background: #fdf5f5;            /* Fundo rosado claro */
 }
 
-/* ===== DECLARATION & SIGNATURES ===== */
+/* ============================================================
+   DECLARATION-BOX - CAIXA DE DECLARAÇÃO
+   ============================================================ */
 .declaration-box {
-    background: #fdfaf5;
-    border: 1px dashed #d4c8a0;
-    border-radius: 16px;
-    padding: 20px 24px;
-    margin: 24px 0;
-    font-size: 0.88rem;
-    color: #5e4e2e;
-    line-height: 1.7;
+    background: #fdfaf5;            /* Fundo bege claro */
+    border: 1px dashed #d4c8a0;     /* Borda TRACEJADA dourada */
+    border-radius: 16px;            /* Cantos arredondados */
+    padding: 20px 24px;             /* Espaçamento interno */
+    margin: 24px 0;                 /* Espaço acima e abaixo */
+    font-size: 0.88rem;             /* Fonte pequena */
+    color: #5e4e2e;                 /* Cor marrom */
+    line-height: 1.7;               /* Espaçamento entre linhas */
 }
 
+/* Ícone de aviso dentro da declaração */
 .declaration-box i {
-    color: #c4963b;
-    margin-right: 8px;
+    color: #c4963b;                 /* Cor dourada */
+    margin-right: 8px;              /* Espaço à direita */
 }
 
+/* ============================================================
+   SIGNATURE-AREA - ÁREA DE ASSINATURAS
+   ============================================================ */
 .signature-area {
-    display: flex;
-    gap: 32px;
-    flex-wrap: wrap;
-    margin-top: 24px;
+    display: flex;                  /* Flexbox */
+    gap: 32px;                      /* Espaço entre campos */
+    flex-wrap: wrap;                /* Quebra linha se necessário */
+    margin-top: 24px;               /* Espaço acima */
 }
 
+/* Campo individual de assinatura */
 .signature-field {
-    flex: 1;
-    min-width: 250px;
+    flex: 1;                        /* Ocupa espaço disponível */
+    min-width: 250px;               /* Largura mínima */
 }
 
+/* Label da assinatura */
 .signature-field label {
-    font-weight: 600;
-    font-size: 0.82rem;
-    color: #3a5068;
-    display: block;
-    margin-bottom: 8px;
+    font-weight: 600;               /* Semi-negrito */
+    font-size: 0.82rem;             /* Fonte pequena */
+    color: #3a5068;                 /* Cor cinza-azulada */
+    display: block;                 /* Ocupa linha inteira */
+    margin-bottom: 8px;             /* Espaço abaixo */
 }
 
+/* Input da assinatura (estilo linha) */
 .signature-field input {
-    width: 100%;
-    padding: 12px 16px;
-    border: none;
-    border-bottom: 2px solid #bcc8d4;
-    font-size: 1rem;
-    font-family: 'Inter', sans-serif;
-    background: transparent;
+    width: 100%;                    /* Ocupa toda a largura */
+    padding: 12px 16px;             /* Espaçamento interno */
+    border: none;                   /* SEM borda completa */
+    border-bottom: 2px solid #bcc8d4; /* Apenas linha inferior */
+    font-size: 1rem;                /* Tamanho do texto */
+    font-family: 'Inter', sans-serif; /* Fonte consistente */
+    background: transparent;        /* Fundo transparente */
 }
 
+/* Foco na assinatura */
 .signature-field input:focus {
-    border-bottom-color: #1e6f5c;
-    outline: none;
+    border-bottom-color: #1e6f5c;   /* Linha verde ao focar */
+    outline: none;                  /* Remove outline */
 }
 
-/* ===== TOAST ===== */
+/* ============================================================
+   TOAST - NOTIFICAÇÕES FLUTUANTES
+   ============================================================ */
 .toast {
-    position: fixed;
-    bottom: 24px;
-    right: 24px;
-    padding: 14px 24px;
-    border-radius: 14px;
-    color: white;
-    font-weight: 600;
-    font-size: 0.9rem;
-    z-index: 1100;
-    animation: fadeUp 0.3s ease;
-    box-shadow:0 10px 24px -8px rgba(0,0,0,0.2);
+    position: fixed;                /* Fixo na tela (não rola) */
+    bottom: 24px;                   /* 24px do fundo */
+    right: 24px;                    /* 24px da direita */
+    padding: 14px 24px;             /* Espaçamento interno */
+    border-radius: 14px;            /* Cantos arredondados */
+    color: white;                   /* Texto branco */
+    font-weight: 600;               /* Semi-negrito */
+    font-size: 0.9rem;              /* Tamanho do texto */
+    z-index: 1100;                  /* Fica acima de tudo */
+    animation: fadeUp 0.3s ease;    /* Animação de entrada */
+    box-shadow: 0 10px 24px -8px rgba(0,0,0,0.2); /* Sombra */
 }
 
+/* Toast de sucesso (verde) */
 .toast.success { background: #1e6f5c; }
+
+/* Toast de erro (vermelho) */
 .toast.error { background: #c0392b; }
+
+/* Toast de informação (azul) */
 .toast.info { background: #2c6f8a; }
 
+/* Animação de entrada do toast */
 @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0);  }
+    from { opacity: 0; transform: translateY(20px); } /* Começa abaixo e invisível */
+    to   { opacity: 1; transform: translateY(0); }    /* Termina visível e no lugar */
 }
 
-/* ===== TOTALS BOX ===== */
+/* ============================================================
+   TOTALS-BOX - CAIXA DE TOTAIS
+   ============================================================ */
 .totals-box {
-    background: linear-gradient(135deg, #e6f4ef 0%, #dff0e8 100%);
-    border-radius: 20px;
-    padding: 24px 28px;
-    margin-top: 24px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 24px;
-    justify-content: space-between;
-    align-items: center;
-    border: 2px solid #b8dcd0;
+    background: linear-gradient(135deg, #e6f4ef 0%, #dff0e8 100%); /* Gradiente verde-claro */
+    border-radius: 20px;            /* Cantos arredondados */
+    padding: 24px 28px;             /* Espaçamento interno */
+    margin-top: 24px;               /* Espaço acima */
+    display: flex;                  /* Flexbox */
+    flex-wrap: wrap;                /* Quebra linha */
+    gap: 24px;                      /* Espaço entre itens */
+    justify-content: space-between; /* Distribui igualmente */
+    align-items: center;            /* Alinha verticalmente */
+    border: 2px solid #b8dcd0;      /* Borda verde-clara */
 }
 
+/* Cada item de total */
 .total-item {
-    text-align: center;
-    min-width: 120px;
+    text-align: center;             /* Centraliza o texto */
+    min-width: 120px;               /* Largura mínima */
 }
 
+/* Label do total */
 .total-item .total-label {
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    color: #4a7062;
-    margin-bottom: 4px;
+    font-size: 0.75rem;             /* Fonte pequena */
+    font-weight: 600;               /* Semi-negrito */
+    text-transform: uppercase;      /* MAIÚSCULAS */
+    letter-spacing: 0.5px;          /* Espaço entre letras */
+    color: #4a7062;                 /* Cor verde-acinzentada */
+    margin-bottom: 4px;             /* Espaço abaixo */
 }
 
+/* Valor do total */
 .total-item .total-value {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #0d3b4e;
+    font-size: 2rem;                /* Fonte grande */
+    font-weight: 800;               /* Extra-negrito */
+    color: #0d3b4e;                 /* Cor azul-escura */
 }
 
+/* Total destacado (TOTAL GERAL) */
 .total-item.highlight .total-value {
-    font-size: 2.4rem;
-    color: #1e6f5c;
+    font-size: 2.4rem;              /* Fonte ainda maior */
+    color: #1e6f5c;                 /* Cor verde */
 }
 
-/* ===== FOTER ===== */
+/* ============================================================
+   FOOTER - RODAPÉ
+   ============================================================ */
 footer {
-    text-align: center;
-    padding: 20px;
-    font-size: 0.8rem;
-    color: #6c868e;
-    border-top: 1px solid #e0e9ef;
-    margin-top: 16px;
+    text-align: center;             /* Centraliza o texto */
+    padding: 20px;                  /* Espaçamento interno */
+    font-size: 0.8rem;              /* Fonte pequena */
+    color: #6c868e;                 /* Cor cinza-azulada */
+    border-top: 1px solid #e0e9ef;  /* Linha superior */
+    margin-top: 16px;               /* Espaço acima */
 }
 
-/* ===== PRIT STYLES ===== */
+/* ============================================================
+   TELA DE LOGIN - DECIDE QUAL PARTE ABRIR
+   ============================================================ */
+.login-box {
+    background: white;              /* Fundo branco */
+    border-radius: 24px;            /* Cantos arredondados */
+    padding: 40px 32px;             /* Espaçamento interno */
+    margin-bottom: 28px;            /* Espaço abaixo */
+    box-shadow: 0 8px 28px -6px rgba(0,0,0,0.06); /* Sombra suave */
+    border: 1px solid #e8eef3;      /* Borda sutil */
+    text-align: center;             /* Centraliza conteúdo */
+}
+
+/* Ícone de cadeado no topo do login */
+.login-box .lock-icon {
+    font-size: 3rem;                /* Fonte grande (ícone grande) */
+    color: #1e6f5c;                 /* Cor verde */
+    margin-bottom: 16px;            /* Espaço abaixo */
+}
+
+/* Título do login */
+.login-box h2 {
+    font-size: 1.5rem;              /* Tamanho do título */
+    color: #0d3b4e;                 /* Cor azul-escura */
+    margin-bottom: 8px;             /* Espaço abaixo */
+}
+
+/* Texto auxiliar do login */
+.login-box p {
+    font-size: 0.9rem;              /* Fonte pequena */
+    color: #5a6f80;                 /* Cor cinza-azulada */
+    margin-bottom: 24px;            /* Espaço abaixo */
+}
+
+/* Campo de senha */
+.login-box input[type="password"] {
+    padding: 14px 20px;             /* Espaçamento interno */
+    border: 2px solid #dce3ea;      /* Borda cinza */
+    border-radius: 14px;            /* Cantos arredondados */
+    font-size: 1rem;                /* Tamanho do texto */
+    font-family: 'Inter', sans-serif; /* Fonte consistente */
+    width: 100%;                    /* Ocupa toda a largura */
+    max-width: 320px;               /* Largura máxima de 320px */
+    text-align: center;             /* Centraliza o texto */
+    margin-bottom: 16px;            /* Espaço abaixo */
+    transition: 0.2s;               /* Transição suave */
+}
+
+/* Foco no campo de senha */
+.login-box input[type="password"]:focus {
+    border-color: #1e6f5c;          /* Borda verde */
+    outline: none;                  /* Remove outline */
+    box-shadow: 0 0 0 3px rgba(30,111,92,0.15); /* Anel verde */
+}
+
+/* Botão principal de login */
+.btn-login {
+    background: #1e6f5c;            /* Fundo verde */
+    color: white;                   /* Texto branco */
+    border: none;                   /* Sem borda */
+    padding: 14px 40px;             /* Espaçamento interno */
+    border-radius: 40px;            /* Cantos arredondados (pílula) */
+    font-weight: 700;               /* Negrito */
+    font-size: 0.95rem;             /* Tamanho do texto */
+    cursor: pointer;                /* Cursor de mãozinha */
+    transition: all 0.2s ease;      /* Transição suave */
+    font-family: 'Inter', sans-serif; /* Fonte consistente */
+    box-shadow: 0 6px 16px rgba(30,111,92,0.25); /* Sombra verde */
+}
+
+/* Hover do botão de login */
+.btn-login:hover {
+    background: #145244;            /* Verde mais escuro */
+    transform: translateY(-2px);    /* Levanta 2px */
+}
+
+/* Botão secundário (abrir Parte I sem senha) */
+.btn-public {
+    background: white;              /* Fundo branco */
+    color: #1e6f5c;                 /* Texto verde */
+    border: 2px solid #1e6f5c;      /* Borda verde */
+    padding: 14px 40px;             /* Espaçamento interno */
+    border-radius: 40px;            /* Cantos arredondados */
+    font-weight: 700;               /* Negrito */
+    font-size: 0.95rem;             /* Tamanho do texto */
+    cursor: pointer;                /* Cursor de mãozinha */
+    transition: all 0.2s ease;      /* Transição suave */
+    font-family: 'Inter', sans-serif; /* Fonte consistente */
+}
+
+/* Hover do botão público */
+.btn-public:hover {
+    background: #e6f4ef;            /* Fundo verde-claro */
+}
+
+/* Mensagem de erro do login */
+.login-error {
+    color: #c0392b;                 /* Cor vermelha */
+    font-size: 0.85rem;             /* Fonte pequena */
+    font-weight: 600;               /* Semi-negrito */
+    margin-top: 12px;               /* Espaço acima */
+    display: none;                  /* ESCONDIDA por padrão */
+}
+
+/* Quando a classe 'visible' é adicionada */
+.login-error.visible {
+    display: block;                 /* Torna VISÍVEL */
+}
+
+/* ============================================================
+   PAGE-SECTION - CONTROLE DE PÁGINAS (PARTE I / PARTE II)
+   ============================================================ */
+.page-section {
+    display: none;                  /* ESCONDIDA por padrão */
+}
+
+/* Página ativa */
+.page-section.active {
+    display: block;                 /* Torna VISÍVEL */
+    animation: fadeIn 0.4s ease;    /* Animação de entrada */
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); } /* Começa abaixo e invisível */
+    to   { opacity: 1; transform: translateY(0); }    /* Termina visível e no lugar */
+}
+
+/* ============================================================
+   IMPRESSÃO
+   ============================================================ */
 @media print {
-    body { background: white; }
-    .container { max-width: 100%; padding: 0; box-shadow: none; }
-    .btn-row, .btn, .toast, footer { display: none !important; }
-    .section-card { box-shadow: none; border:1px solid #ccc; break-inside: avoid; }
-    header { background: #1a5d6e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    .totals-box { background: #e6f4ef !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    body { background: white; }                              /* Fundo branco */
+    .container { max-width: 100%; padding: 0; box-shadow: none; } /* Remove limitações */
+    .btn-row, .btn, .toast, footer, .login-box { display: none !important; } /* Esconde botões e login */
+    .section-card { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; } /* Borda simples */
+    header { background: #1a5d6e !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; } /* Mantém cores */
+    .totals-box { background: #e6f4ef !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; } /* Mantém cores */
+    .page-section { display: block !important; }             /* Mostra TODAS as páginas */
 }
 
-/* ===== RESPONSIVE ===== */
+/* ============================================================
+   RESPONSIVIDADE - TELAS PEQUENAS (até 768px)
+   ============================================================ */
 @media (max-width: 768px) {
-    .form-grid, .form-grid.three-cols {
+    /* Grid vira uma coluna */
+    .form-grid,
+    .form-grid.three-cols {
         grid-template-columns: 1fr;
     }
+
+    /* Campo full-width ocupa a coluna única */
     .form-group.full-width {
-        grid-column:1;
+        grid-column: 1;
     }
+
+    /* Tabela com fonte menor */
     .scoring-table {
-        font-size:0.78rem;
+        font-size: 0.78rem;
     }
-    .scoring-table th, .scoring-table td {
-        padding:8px 6px;
+
+    /* Células com menos padding */
+    .scoring-table th,
+    .scoring-table td {
+        padding: 8px 6px;
     }
+
+    /* Inputs da tabela menores */
     .scoring-table input {
-        width:55px;
-        font-size:0.78rem;
+        width: 55px;
+        font-size: 0.78rem;
     }
+
+    /* Totais empilhados verticalmente */
     .totals-box {
         flex-direction: column;
         text-align: center;
     }
+
+    /* Assinaturas empilhadas */
     .signature-area {
         flex-direction: column;
     }
+
+    /* Header com menos padding */
     header {
         padding: 24px 16px;
     }
+
+    /* Título menor e centralizado */
     header h1 {
-        font-size:1.3rem;
+        font-size: 1.3rem;
         text-align: center;
     }
+
+    /* Contatos menores */
     .school-contact {
-        gap:12px;
-        font-size:0.75rem;
+        gap: 12px;
+        font-size: 0.75rem;
     }
 }

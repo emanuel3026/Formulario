@@ -1,301 +1,466 @@
 <!DOCTYPE html>
+<!-- Declara o documento como HTML5 -->
 <html lang="pt-BR">
+<!-- Idioma da página: português do Brasil -->
 <head>
+    <!-- Codificação UTF-8 para suportar acentos e caracteres especiais -->
     <meta charset="UTF-8">
+    <!-- Viewport responsivo para dispositivos móveis -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título exibido na aba do navegador -->
     <title>Inscrição · Colégio Estadual Leonardo da Vinci</title>
-    <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap)" rel="stylesheet">
-    <link rel="stylesheet" href="[cdnjs.cloudflare.com](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css)">
+    <!-- Importa a fonte Inter do Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <!-- Importa a biblioteca de ícones Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Importa a folha de estilos personalizada -->
     <link rel="stylesheet" href="formulario.css">
 </head>
 <body>
+    <!-- Container principal que centraliza o conteúdo -->
     <div class="container">
 
-        <!-- ==================== HEDER ==================== -->
+        <!-- ==================== HEADER (CABEÇALHO) ==================== -->
         <header>
+            <!-- Área superior com logo + título -->
             <div class="header-top">
-                <div class="logo-area">LDV</div>
+                <!-- Círculo com a logo da escola -->
+                <div class="logo-area">
+                    <!-- Imagem da logo (substitua pelo caminho real) -->
+                    <img src="imagem/imagem civico.png" alt="Logo da escola"
+                         style="width:100%; height:100%; border-radius:50%; object-fit:cover;">
+                </div>
+                <!-- Bloco do título -->
                 <div>
+                    <!-- Título principal com subtítulo -->
                     <h1>Colégio Estadual Leonardo da Vinci
                         <small>Ensino Fundamental, Médio, Normal e Profissional</small>
                     </h1>
                 </div>
             </div>
+            <!-- Área de contatos da escola -->
             <div class="school-contact">
+                <!-- Endereço -->
                 <span><i class="fas fa-map-marker-alt"></i> Av. Salgado Filho, 175 - Centro Sul</span>
+                <!-- Telefone -->
                 <span><i class="fas fa-phone"></i> (46) 3536-2334</span>
+                <!-- E-mail -->
                 <span><i class="fas fa-envelope"></i> dvzleonardodavinci@seed.pr.gov.br</span>
+                <!-- Cidade -->
                 <span><i class="fas fa-city"></i> Dois Vizinhos · Paraná</span>
             </div>
         </header>
 
-        <!-- ==================== PARTE I: FICHA DE ISCRICAO ==================== -->
-        <div class="section-card" id="fichaInscricao">
-            <div class="section-header">
-                <i class="fas fa-user-gradute"></i>
-                <h2>I - Ficha de Inscrição</h2>
+        <!-- ==================== TELA DE LOGIN (DECISORA) ==================== -->
+        <!-- Esta tela aparece PRIMEIRO. O usuário escolhe:
+             - "Continuar sem senha" → abre a Parte I
+             - "Entrar com senha" (secretara1234) → abre a Parte II -->
+        <div class="login-box" id="telaLogin">
+            <!-- Ícone de cadeado no topo -->
+            <div class="lock-icon">
+                <i class="fas fa-lock"></i>
             </div>
+            <!-- Título da tela -->
+            <h2>Bem-vindo(a)</h2>
+            <!-- Texto explicativo -->
+            <p>Para acessar a <strong>Ficha de Pontuação</strong>, digite a senha da secretaria.<br>
+               Caso contrário, continue sem senha para preencher a <strong>Ficha de Inscrição</strong>.</p>
 
-            <div class="form-grid">
-                <div class="form-group full-width">
-                    <label for="nome">Nome completo</label>
-                    <input type="text" id="nome" placeholder="Digite seu nome completo">
-                </div>
-                <div class="form-group">
-                    <label for="rg">RG</label>
-                    <input type="text" id="rg" placeholder="00.000.000-0">
-                </div>
-                <div class="form-group">
-                    <label for="rgExpedidor">Expedido por</label>
-                    <input type="text" id="rgExpedidor" placeholder="SSP/PR">
-                </div>
-                <div class="form-group">
-                    <label for="cpf">CPF</label>
-                    <input type="text" id="cpf" placeholder="000.000.000-00">
-                </div>
-                <div class="form-group">
-                    <label for="dataNascimento">Data de nascimento</label>
-                    <input type="date" id="dataNascimento">
-                </div>
-                <div class="form-group full-width">
-                    <label for="endereco">Endereço</label>
-                    <input type="text" id="endereco" placeholder="Rua/Avenida...">
-                </div>
-                <div class="form-group">
-                    <label for="numero">Nº</label>
-                    <input type="text" id="numero" placeholder="Nº">
-                </div>
-                <div class="form-group">
-                    <label for="bairro">Bairro</label>
-                    <input type="text" id="bairro">
-                </div>
-                <div class="form-group">
-                    <label for="municipio">Município</label>
-                    <input type="text" id="municipio" value="Dois Vizinhos">
-                </div>
-                <div class="form-group">
-                    <label for="uf">UF</label>
-                    <input type="text" id="uf" value="PR" maxlength="2" style="width:70px">
-                </div>
-                <div class="form-group">
-                    <label for="telefoneFixo">Telefone fixo</label>
-                    <input type="tel" id="telefoneFixo" placeholder="(46) 0000-0000">
-                </div>
-                <div class="form-group">
-                    <label for="celularA">Celular A</label>
-                    <input type="tel" id="celularA" placeholder="(46) 90000-0000">
-                </div>
-                <div class="form-group">
-                    <label for="celularB">Celular B</label>
-                    <input type="tel" id="celularB" placeholder="(46) 90000-0000">
-                </div>
-                <div class="form-group full-width">
-                    <label for="email">E-mail</label>
-                    <input type="email" id="email" placeholder="seu@email.com">
-                </div>
-            </div>
+            <!-- Campo de senha -->
+            <input type="password" id="senhaLogin"
+                   placeholder="Digite a senha"
+                   onkeydown="if(event.key==='Enter') fazerLogin()">
 
-            <!-- CURSO PRETENDIDO -->
-            <div style="margin-top:28px">
-                <label style="font-weight:700; font-size:0.85rem; color:#1a3b4a; display:block; margin-bottom:12px;">
-                    CURSO PRETENDIDO:
-                </label>
-                <div class="course-options">
-                    <div class="course-option">
-                        <input type="radio" name="curso" id="cursoDS" value="Técnico em Desenvolvimento de Sistemas (Integrado ao Ensino Médio) - Manhã">
-                        <label for="cursoDS">
-                            <span class="radio-circle"></span>
-                            <span>Técnico em Desenvolvimento de Sistemas<br><small style="opacity:0.7">Integrado ao Ensino Médio · Turno da Manhã</small></span>
-                        </label>
-                    </div>
-                    <div class="course-option">
-                        <input type="radio" name="curso" id="cursoFD" value="Formação de Docentes (Integrado ao Ensino Médio) - Manhã">
-                        <label for="cursoFD">
-                            <span class="radio-circle"></span>
-                            <span>Formação de Docentes<br><small style="opacity:0.7">Integrado ao Ensino Médio · Turno da Manhã</small></span>
-                        </label>
-                    </div>
-                </div>
-            </div>
+            <!-- Botão principal: entrar COM senha → Parte II -->
+            <button class="btn-login" onclick="fazerLogin()">
+                <i class="fas fa-sign-in-alt"></i> Entrar com senha
+            </button>
 
-            <!-- DECLARACAO -->
-            <div class="declaration-box">
-                <i class="fas fa-exclamation-triangle"></i>
-                <strong>Declaro</strong> verdadeiras as informações acima e estar ciente que, em caso de classificação para o curso e efetivação de matrícula, o <strong>não comparecimento nas aulas nos primeiros 5 (cico) dias úteis</strong> do início do curso implicará na exclusão automática da matrícula, sendo necessário participar de novo processo seletivo para ingresos no curso pretendido.
-            </div>
+            <!-- Botão secundário: continuar SEM senha → Parte I -->
+            <button class="btn-public" onclick="abrirParteI()" style="margin-top:12px;">
+                <i class="fas fa-user-edit"></i> Continuar sem senha
+            </button>
 
-            <!-- ASINATURAS PARTE I -->
-            <div class="signature-area">
-                <div class="signature-field">
-                    <label>Nome do(a) Responsável</label>
-                    <input type="text" id="nomeResponsavel" placeholder="Nome completo do responsável">
-                </div>
-                <div class="signature-field">
-                    <label>Data</label>
-                    <input type="date" id="dataInscricao">
-                </div>
+            <!-- Mensagem de erro (escondida por padrão) -->
+            <div class="login-error" id="loginError">
+                <i class="fas fa-times-circle"></i> Senha incorreta. Tente novamente.
             </div>
         </div>
 
-        <!-- ==================== PARTE II: FICHA DE PONTUACAO ==================== -->
-        <div class="section-card" id="fichaPontuacao">
-            <div class="section-header">
-                <i class="fas fa-calculator"></i>
-                <h2>II - Ficha de Pontuação</h2>
-            </div>
-
-            <div class="form-grid">
-                <div class="form-group">
-                    <label for="numeroInscricao">Número da Inscriçaõ</label>
-                    <input type="text" id="numeroInscricao" placeholder="Gerado automaticamente" readonly style="background:#eef3f7">
+        <!-- ==================== PÁGINA 1: PARTE I (FICHA DE INSCRIÇÃO) ==================== -->
+        <!-- Esta seção fica ESCONDIDA até o usuário clicar em "Continuar sem senha" -->
+        <div class="page-section" id="pagina1">
+            <!-- Card da Parte I -->
+            <div class="section-card" id="fichaInscricao">
+                <!-- Cabeçalho da seção -->
+                <div class="section-header">
+                    <i class="fas fa-user-graduate"></i>
+                    <h2>I - Ficha de Inscrição</h2>
                 </div>
-                <div class="form-group">
-                    <label for="cgm">CGM</label>
-                    <input type="text" id="cgm" placeholder="Código Geral de Matrícula">
-                </div>
-            </div>
 
-            <!-- BENEFICIARIO -->
-            <div style="margin-top:24px">
-                <label style="font-weight:700; font-size:0.85rem; color:#1a3b4a; display:block; margin-bottom:10px;">
-                    Beneficiário de programas federais de transferência de renda
-                </label>
-                <div class="course-options" style="gap:16px">
-                    <div class="course-option" style="min-width:120px">
-                        <input type="radio" name="beneficiario" id="benefNao" value="nao" onchange="toggleNis()">
-                        <label for="benefNao"><span class="radio-circle"></span> Não</label>
+                <!-- Grid com os campos do formulário -->
+                <div class="form-grid">
+                    <!-- Campo: Nome completo (largura total) -->
+                    <div class="form-group full-width">
+                        <label for="nome">Nome completo</label>
+                        <input type="text" id="nome" placeholder="Digite seu nome completo">
                     </div>
-                    <div class="course-option" style="min-width:120px">
-                        <input type="radio" name="beneficiario" id="benefSim" value="sim" onchange="toggleNis()">
-                        <label for="benefSim"><span class="radio-circle"></span> Sim</label>
+                    <!-- Campo: RG -->
+                    <div class="form-group">
+                        <label for="rg">RG</label>
+                        <input type="text" id="rg" placeholder="00.000.000-0">
+                    </div>
+                    <!-- Campo: Expedido por -->
+                    <div class="form-group">
+                        <label for="rgExpedidor">Expedido por</label>
+                        <input type="text" id="rgExpedidor" placeholder="SSP/PR">
+                    </div>
+                    <!-- Campo: CPF -->
+                    <div class="form-group">
+                        <label for="cpf">CPF</label>
+                        <input type="text" id="cpf" placeholder="000.000.000-00">
+                    </div>
+                    <!-- Campo: Data de nascimento -->
+                    <div class="form-group">
+                        <label for="dataNascimento">Data de nascimento</label>
+                        <input type="date" id="dataNascimento">
+                    </div>
+                    <!-- Campo: Endereço (largura total) -->
+                    <div class="form-group full-width">
+                        <label for="endereco">Endereço</label>
+                        <input type="text" id="endereco" placeholder="Rua/Avenida...">
+                    </div>
+                    <!-- Campo: Número -->
+                    <div class="form-group">
+                        <label for="numero">Nº</label>
+                        <input type="text" id="numero" placeholder="Nº">
+                    </div>
+                    <!-- Campo: Bairro -->
+                    <div class="form-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro">
+                    </div>
+                    <!-- Campo: Município (pré-preenchido) -->
+                    <div class="form-group">
+                        <label for="municipio">Município</label>
+                        <input type="text" id="municipio" value="Dois Vizinhos">
+                    </div>
+                    <!-- Campo: UF (pré-preenchido) -->
+                    <div class="form-group">
+                        <label for="uf">UF</label>
+                        <input type="text" id="uf" value="PR" maxlength="2" style="width:70px">
+                    </div>
+                    <!-- Campo: Telefone fixo -->
+                    <div class="form-group">
+                        <label for="telefoneFixo">Telefone fixo</label>
+                        <input type="tel" id="telefoneFixo" placeholder="(46) 0000-0000">
+                    </div>
+                    <!-- Campo: Celular A -->
+                    <div class="form-group">
+                        <label for="celularA">Celular A</label>
+                        <input type="tel" id="celularA" placeholder="(46) 90000-0000">
+                    </div>
+                    <!-- Campo: Celular B -->
+                    <div class="form-group">
+                        <label for="celularB">Celular B</label>
+                        <input type="tel" id="celularB" placeholder="(46) 90000-0000">
+                    </div>
+                    <!-- Campo: E-mail (largura total) -->
+                    <div class="form-group full-width">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" placeholder="seu@email.com">
                     </div>
                 </div>
-                <div class="nis-field" id="nisField">
-                    <label for="nis">Informe o Número NIS:</label>
-                    <input type="text" id="nis" placeholder="000.000.000-00" oninput="calcularPontuacao()" style="width:240px">
+
+                <!-- Seção: Curso pretendido -->
+                <div style="margin-top:28px">
+                    <label style="font-weight:700; font-size:0.85rem; color:#1a3b4a; display:block; margin-bottom:12px;">
+                        CURSO PRETENDIDO:
+                    </label>
+                    <div class="course-options">
+                        <!-- Opção 1: Técnico em Desenvolvimento de Sistemas -->
+                        <div class="course-option">
+                            <input type="radio" name="curso" id="cursoDS"
+                                   value="Técnico em Desenvolvimento de Sistemas (Integrado ao Ensino Médio) - Manhã">
+                            <label for="cursoDS">
+                                <span class="radio-circle"></span>
+                                <span>Técnico em Desenvolvimento de Sistemas<br>
+                                    <small style="opacity:0.7">Integrado ao Ensino Médio · Turno da Manhã</small>
+                                </span>
+                            </label>
+                        </div>
+                        <!-- Opção 2: Formação de Docentes -->
+                        <div class="course-option">
+                            <input type="radio" name="curso" id="cursoFD"
+                                   value="Formação de Docentes (Integrado ao Ensino Médio) - Manhã">
+                            <label for="cursoFD">
+                                <span class="radio-circle"></span>
+                                <span>Formação de Docentes<br>
+                                    <small style="opacity:0.7">Integrado ao Ensino Médio · Turno da Manhã</small>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Caixa de declaração -->
+                <div class="declaration-box">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <strong>Declaro</strong> verdadeiras as informações acima e estar ciente que, em caso de
+                    classificação para o curso e efetivação de matrícula, o
+                    <strong>não comparecimento nas aulas nos primeiros 5 (cinco) dias úteis</strong>
+                    do início do curso implicará na exclusão automática da matrícula, sendo necessário
+                    participar de novo processo seletivo para ingresso no curso pretendido.
+                </div>
+
+                <!-- Área de assinaturas da Parte I -->
+                <div class="signature-area">
+                    <!-- Campo: Nome do responsável -->
+                    <div class="signature-field">
+                        <label>Nome do(a) Responsável</label>
+                        <input type="text" id="nomeResponsavel" placeholder="Nome completo do responsável">
+                    </div>
+                    <!-- Campo: Data da inscrição -->
+                    <div class="signature-field">
+                        <label>Data</label>
+                        <input type="date" id="dataInscricao">
+                    </div>
                 </div>
             </div>
 
-            <!-- ORIGEM ESCOLAR -->
-            <div style="margin-top:24px">
-                <label style="font-weight:700; font-size:0.85rem; color:#1a3b4a; display:block; margin-bottom:10px;">
-                    Origem Escolar · Ensino Fundamental
-                </label>
-                <div class="origin-option">
-                    <input type="radio" name="origem" id="origem85" value="85" onchange="calcularPontuacao()">
-                    <label for="origem85">Integralmente em Instituiçãoda Rede Pública ou bolsista integral da Rede Particular &mdash; <strong>85 pontos</strong></label>
-                </div>
-                <div class="origin-option">
-                    <input type="radio" name="origem" id="origem80" value="80" onchange="calcularPontuacao()">
-                    <label for="origem80">Parcialmente na Rede Pública, com no máxmo1 ano na Rede Particular ou bolsista parcial &mdash; <strong>80 pontos</strong></label>
-                </div>
-                <div class="origin-option">
-                    <input type="radio" name="origem" id="origem75" value="75" onchange="calcularPontuacao()">
-                    <label for="origem75">Parcialmente na Rede Pública, com 2a 3 anos na Rede Particular &mdash; <strong>75 pontos</strong></label>
-                </div>
-                <div class="origin-option">
-                    <input type="radio" name="origem" id="origem70" value="70" onchange="calcularPontuacao()">
-                    <label for="origem70">Integralmente em Rede Particular &mdash; <strong>70 pontos</strong></label>
-                </div>
-            </div>
-
-            <!-- MEDIAS 9º ANO -->
-            <div style="margin-top:24px">
-                <label style="font-weight:700; font-size:0.85rem; color:#1a3b4a; display:block; margin-bottom:14px;">
-                    Médias do Ensino Fundamental · 6ºao 9º Ano
-                </label>
-                <div style="overflow-x:auto">
-                    <table class="scoring-table">
-                        <thead>
-                            <tr>
-                                <th>Disciplina</th>
-                                <th>6º Ano</th>
-                                <th>7º Ano</th>
-                                <th>8º Ano</th>
-                                <th>9º Ano</th>
-                                <th>Média Aritmética</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>Língua Portuguesa</strong></td>
-                                <td><input type="number" id="lp6" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
-                                <td><input type="number" id="lp7" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
-                                <td><input type="number" id="lp8" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
-                                <td><input type="number" id="lp9" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
-                                <td class="score-highlight" id="mediaLP">–</td>
-                            </tr>
-                            <tr>
-                                <td><strong>Matemática</strong></td>
-                                <td><input type="number" id="mt6" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
-                                <td><input type="number" id="mt7" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
-                                <td><input type="number" id="mt8" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
-                                <td><input type="number" id="mt9" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
-                                <td class="score-highlight" id="mediaMT">–</td>
-                            </tr>
-                            <tr style="background:#f5f8fa; font-weight:700;">
-                                <td colspan="5" style="text-align:right; padding-right:24px;">Média Aritmética Final (0-100):</td>
-                                <td class="score-highlight" id="mediaFinal">–</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- ENTEVISTA -->
-            <div class="form-grid" style="margin-top:24px">
-                <div class="form-group">
-                    <label for="entrevista">Entrevista (quando aplicada) · 0 a 100</label>
-                    <input type="number" id="entrevista" min="0" max="100" placeholder="0-100" oninput="calcularPontuacao()" style="width:140px">
-                </div>
-            </div>
-
-            <!-- TOTAIS -->
-            <div class="totals-box" id="totalsBox">
-                <div class="total-item">
-                    <div class="total-label">Beneficiário + Origem</div>
-                    <div class="total-value" id="totalBenefOrigem">0</div>
-                </div>
-                <div class="total-item">
-                    <div class="total-label">Média Final</div>
-                    <div class="total-value" id="totalMediaFinal">–</div>
-                </div>
-                <div class="total-item">
-                    <div class="total-label">Entrevista</div>
-                    <div class="total-value" id="totalEntrevista">–</div>
-                </div>
-                <div class="total-item highlight">
-                    <div class="total-label">TOTAL GERAL</div>
-                    <div class="total-value" id="totalGeral">0</div>
-                </div>
-            </div>
-
-            <!-- ASINATURAS PARTE II -->
-            <div class="signature-area" style="margin-top:24px">
-                <div class="signature-field">
-                    <label>Asinatura do candidato</label>
-                    <input type="text" placeholder="Digite seu nome para asinar">
-                </div>
-                <div class="signature-field">
-                    <label>Nome do funcionário</label>
-                    <input type="text" placeholder="Preenchido pela escola">
-                </div>
+            <!-- Botões de ação da Parte I -->
+            <div class="btn-row">
+                <!-- Botão para salvar a Parte I -->
+                <button class="btn btn-save" onclick="salvarParteI()">
+                    <i class="fas fa-save"></i> Salvar Inscrição
+                </button>
+                <!-- Botão para voltar à tela de login -->
+                <button class="btn btn-clear" onclick="voltarLogin()">
+                    <i class="fas fa-arrow-left"></i> Voltar ao Login
+                </button>
             </div>
         </div>
 
-        <!-- ==================== BOTOES DE ACAO ==================== -->
-        <div class="btn-row">
-            <button class="btn btn-save" onclick="salvarInscricao()"><i class="fas fa-save"></i> Salvar Inscriçaõ</button>
-            <button class="btn btn-print" onclick="imprimirInscricao()"><i class="fas fa-print"></i> Imprimir</button>
-            <button class="btn btn-clear" onclick="limparFormulario()"><i class="fas fa-rash"></i> Limpar</button>
+        <!-- ==================== PÁGINA 2: PARTE II (FICHA DE PONTUAÇÃO) ==================== -->
+        <!-- Esta seção fica ESCONDIDA até o usuário digitar a senha correta -->
+        <div class="page-section" id="pagina2">
+            <!-- Card da Parte II -->
+            <div class="section-card" id="fichaPontuacao">
+                <!-- Cabeçalho da seção -->
+                <div class="section-header">
+                    <i class="fas fa-calculator"></i>
+                    <h2>II - Ficha de Pontuação</h2>
+                </div>
+
+                <!-- Grid: Número de inscrição + CGM -->
+                <div class="form-grid">
+                    <!-- Campo: Número da inscrição (somente leitura) -->
+                    <div class="form-group">
+                        <label for="numeroInscricao">Número da inscrição</label>
+                        <input type="text" id="numeroInscricao"
+                               placeholder="Gerado automaticamente" readonly
+                               style="background:#eef3f7">
+                    </div>
+                    <!-- Campo: CGM -->
+                    <div class="form-group">
+                        <label for="cgm">CGM</label>
+                        <input type="text" id="cgm" placeholder="Código Geral de Matrícula">
+                    </div>
+                </div>
+
+                <!-- Seção: Beneficiário de programas federais -->
+                <div style="margin-top:24px">
+                    <label style="font-weight:700; font-size:0.85rem; color:#1a3b4a; display:block; margin-bottom:10px;">
+                        Beneficiário de programas federais de transferência de renda
+                    </label>
+                    <div class="course-options" style="gap:16px">
+                        <!-- Opção: Não -->
+                        <div class="course-option" style="min-width:120px">
+                            <input type="radio" name="beneficiario" id="benefNao"
+                                   value="nao" onchange="toggleNis()">
+                            <label for="benefNao">
+                                <span class="radio-circle"></span> Não
+                            </label>
+                        </div>
+                        <!-- Opção: Sim -->
+                        <div class="course-option" style="min-width:120px">
+                            <input type="radio" name="beneficiario" id="benefSim"
+                                   value="sim" onchange="toggleNis()">
+                            <label for="benefSim">
+                                <span class="radio-circle"></span> Sim
+                            </label>
+                        </div>
+                    </div>
+                    <!-- Campo NIS (condicional) -->
+                    <div class="nis-field" id="nisField">
+                        <label for="nis">Informe o Número NIS:</label>
+                        <input type="text" id="nis" placeholder="000.000.000-00"
+                               oninput="calcularPontuacao()" style="width:240px">
+                    </div>
+                </div>
+
+                <!-- Seção: Origem escolar -->
+                <div style="margin-top:24px">
+                    <label style="font-weight:700; font-size:0.85rem; color:#1a3b4a; display:block; margin-bottom:10px;">
+                        Origem Escolar · Ensino Fundamental
+                    </label>
+                    <!-- Opção 85 pontos -->
+                    <div class="origin-option">
+                        <input type="radio" name="origem" id="origem85"
+                               value="85" onchange="calcularPontuacao()">
+                        <label for="origem85">Integralmente em Instituição da Rede Pública ou
+                            bolsista integral da Rede Particular &mdash; <strong>85 pontos</strong></label>
+                    </div>
+                    <!-- Opção 80 pontos -->
+                    <div class="origin-option">
+                        <input type="radio" name="origem" id="origem80"
+                               value="80" onchange="calcularPontuacao()">
+                        <label for="origem80">Parcialmente na Rede Pública, com no máximo 1 ano
+                            na Rede Particular ou bolsista parcial &mdash; <strong>80 pontos</strong></label>
+                    </div>
+                    <!-- Opção 75 pontos -->
+                    <div class="origin-option">
+                        <input type="radio" name="origem" id="origem75"
+                               value="75" onchange="calcularPontuacao()">
+                        <label for="origem75">Parcialmente na Rede Pública, com 2 a 3 anos
+                            na Rede Particular &mdash; <strong>75 pontos</strong></label>
+                    </div>
+                    <!-- Opção 70 pontos -->
+                    <div class="origin-option">
+                        <input type="radio" name="origem" id="origem70"
+                               value="70" onchange="calcularPontuacao()">
+                        <label for="origem70">Integralmente em Rede Particular &mdash;
+                            <strong>70 pontos</strong></label>
+                    </div>
+                </div>
+
+                <!-- Seção: Médias do Ensino Fundamental -->
+                <div style="margin-top:24px">
+                    <label style="font-weight:700; font-size:0.85rem; color:#1a3b4a; display:block; margin-bottom:14px;">
+                        Médias do Ensino Fundamental · 6º ao 9º Ano
+                    </label>
+                    <!-- Tabela com scroll horizontal -->
+                    <div style="overflow-x:auto">
+                        <table class="scoring-table">
+                            <thead>
+                                <tr>
+                                    <th>Disciplina</th>
+                                    <th>6º Ano</th>
+                                    <th>7º Ano</th>
+                                    <th>8º Ano</th>
+                                    <th>9º Ano</th>
+                                    <th>Média Aritmética</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Linha: Língua Portuguesa -->
+                                <tr>
+                                    <td><strong>Língua Portuguesa</strong></td>
+                                    <td><input type="number" id="lp6" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
+                                    <td><input type="number" id="lp7" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
+                                    <td><input type="number" id="lp8" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
+                                    <td><input type="number" id="lp9" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
+                                    <td class="score-highlight" id="mediaLP">–</td>
+                                </tr>
+                                <!-- Linha: Matemática -->
+                                <tr>
+                                    <td><strong>Matemática</strong></td>
+                                    <td><input type="number" id="mt6" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
+                                    <td><input type="number" id="mt7" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
+                                    <td><input type="number" id="mt8" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
+                                    <td><input type="number" id="mt9" min="0" max="100" placeholder="0-100" oninput="calcularMedias()"></td>
+                                    <td class="score-highlight" id="mediaMT">–</td>
+                                </tr>
+                                <!-- Linha: Média Final -->
+                                <tr style="background:#f5f8fa; font-weight:700;">
+                                    <td colspan="5" style="text-align:right; padding-right:24px;">
+                                        Média Aritmética Final (0-100):
+                                    </td>
+                                    <td class="score-highlight" id="mediaFinal">–</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Campo: Entrevista -->
+                <div class="form-grid" style="margin-top:24px">
+                    <div class="form-group">
+                        <label for="entrevista">Entrevista (quando aplicada) · 0 a 100</label>
+                        <input type="number" id="entrevista" min="0" max="100"
+                               placeholder="0-100" oninput="calcularPontuacao()" style="width:140px">
+                    </div>
+                </div>
+
+                <!-- Caixa de totais -->
+                <div class="totals-box" id="totalsBox">
+                    <!-- Total: Beneficiário + Origem -->
+                    <div class="total-item">
+                        <div class="total-label">Beneficiário + Origem</div>
+                        <div class="total-value" id="totalBenefOrigem">0</div>
+                    </div>
+                    <!-- Total: Média Final -->
+                    <div class="total-item">
+                        <div class="total-label">Média Final</div>
+                        <div class="total-value" id="totalMediaFinal">–</div>
+                    </div>
+                    <!-- Total: Entrevista -->
+                    <div class="total-item">
+                        <div class="total-label">Entrevista</div>
+                        <div class="total-value" id="totalEntrevista">–</div>
+                    </div>
+                    <!-- Total: TOTAL GERAL (destaque) -->
+                    <div class="total-item highlight">
+                        <div class="total-label">TOTAL GERAL</div>
+                        <div class="total-value" id="totalGeral">0</div>
+                    </div>
+                </div>
+
+                <!-- Área de assinaturas da Parte II -->
+                <div class="signature-area" style="margin-top:24px">
+                    <!-- Campo: Assinatura do candidato -->
+                    <div class="signature-field">
+                        <label>Assinatura do candidato</label>
+                        <input type="text" placeholder="Digite seu nome para assinar">
+                    </div>
+                    <!-- Campo: Nome do funcionário -->
+                    <div class="signature-field">
+                        <label>Nome do funcionário</label>
+                        <input type="text" placeholder="Preenchido pela escola">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botões de ação da Parte II -->
+            <div class="btn-row">
+                <!-- Botão: Salvar inscrição -->
+                <button class="btn btn-save" onclick="salvarInscricao()">
+                    <i class="fas fa-save"></i> Salvar inscrição
+                </button>
+                <!-- Botão: Imprimir -->
+                <button class="btn btn-print" onclick="imprimirInscricao()">
+                    <i class="fas fa-print"></i> Imprimir
+                </button>
+                <!-- Botão: Limpar -->
+                <button class="btn btn-clear" onclick="limparFormulario()">
+                    <i class="fas fa-trash"></i> Limpar
+                </button>
+                <!-- Botão: Voltar ao login -->
+                <button class="btn btn-clear" onclick="voltarLogin()">
+                    <i class="fas fa-arrow-left"></i> Voltar ao Login
+                </button>
+            </div>
         </div>
 
-        <!-- ==================== COMRPVANTE DE INSCRICAO ==================== -->
+        <!-- ==================== COMPROVANTE DE INSCRIÇÃO ==================== -->
+        <!-- Aparece após salvar a inscrição -->
         <div class="section-card" id="comprovante" style="display:none;">
+            <!-- Cabeçalho do comprovante -->
             <div class="section-header">
                 <i class="fas fa-check-circle"></i>
                 <h2>Comprovante de Inscrição</h2>
             </div>
+            <!-- Dados do comprovante -->
             <div style="font-size:1rem; line-height:2;">
                 <p><strong>Número da Inscrição:</strong> <span id="compNumero">–</span></p>
                 <p><strong>Nome:</strong> <span id="compNome">–</span></p>
@@ -305,11 +470,13 @@
             </div>
         </div>
 
+        <!-- ==================== FOOTER (RODAPÉ) ==================== -->
         <footer>
             Colégio Estadual Leonardo da Vinci · Dois Vizinhos/PR · Sistema de Inscrição 2024
         </footer>
     </div>
 
-
+    <!-- Importa o arquivo JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>
