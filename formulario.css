@@ -29,7 +29,7 @@ header {
     align-items: center;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
+    flex-wrap: wrap; /*Faz a quebra de linhas se algo for maior que o tamanho da pagina*/
 }
 
 .logo-area {
@@ -43,18 +43,18 @@ header {
     font-size: 2.5rem;
     font-weight: 700;
     color: #1a5d6e;
-    flex-shrink: 0;
+    flex-shrink: 0; /*Faz com que os itens encolham para que não ultrapasse o limite da pagna*/
 }
 
 header h1 {
     font-size: 1.7rem;
     font-weight: 700;
-    letter-spacing: -0.3px;
+    letter-spacing: -0.3px;/*Serve para diminuir o espaçamento entre as letras*/
     text-align: left;
 }
 
 header h1 small {
-    display: block;
+    display: block; /*Faz com que seja exibido como um bloco/caixa */
     font-size: 0.75rem;
     font-weight: 400;
     opacity: 0.8;
@@ -68,7 +68,7 @@ header h1 small {
     gap: 32px;
     flex-wrap: wrap;
     font-size: 0.85rem;
-    opacity: 0.9;
+    opacity: 0.9; /*define a opacidade quanto mais perto do 1 mais opaco, mais perto do 0 mais transparente; muda oque esta abaixo de Leonardo*/
 }
 
 .school-contact span {
@@ -92,7 +92,7 @@ header h1 small {
     align-items: center;
     gap: 14px;
     margin-bottom: 28px;
-    border-left: 5px solid #1e6f5c;
+    border-left: 5px solid #1e6f5c; /*adiciona o tile verde dolado atras ficha de inscrição*/
     padding-left: 20px;
 }
 
@@ -125,14 +125,14 @@ header h1 small {
 }
 
 .form-group.full-width {
-    grid-column: 1 / -1;
+    grid-column: 1 / -1;/*muda o tamanho das caixa de texto de nome completo ate email*/
 }
 
 .form-group label {
     font-weight: 600;
     font-size: 0.82rem;
     color: #3a5068;
-    text-transform: uppercase;
+    text-transform: uppercase;/*adiciona todas as letras maiúsculas*/
     letter-spacing: 0.5px;
 }
 
@@ -151,7 +151,7 @@ header h1 small {
 .form-group input:focus,
 .form-group select:focus {
     border-color: #1e6f5c;
-    outline: none;
+    outline: none;/*adiciona uma linha verde leve nas caixas de texto*/
     box-shadow: 0 0 0 3px rgba(30,111,92,0.15);
     background: white;
 }
@@ -287,7 +287,7 @@ header h1 small {
 }
 
 .origin-option input[type="radio"] {
-    accent-color: #1e6f5c;
+    accent-color: #1e6f5c;/*muda a cor da bolinha da check box*/
     width: 16px;
     height: 16px;
     margin-right: 8px;
@@ -441,7 +441,7 @@ header h1 small {
     font-size: 0.9rem;
     z-index: 1100;
     animation: fadeUp 0.3s ease;
-    box-shadow:0 10px 24px -8px rgba(0,0,0,0.2);
+    box-shadow:0 10px 24px -8px rgba(0, 0, 0, 0.2);/*adiciona uma sobra no limpar*/
 }
 
 .toast.success { background: #1e6f5c; }
@@ -503,7 +503,7 @@ footer {
 }
 
 /* ===== PRIT STYLES ===== */
-@media print {
+@media print { /*aplicar estilos diferentes para diferentes tipos de dispositivos ou tamanhos de tela*/
     body { background: white; }
     .container { max-width: 100%; padding: 0; box-shadow: none; }
     .btn-row, .btn, .toast, footer { display: none !important; }
