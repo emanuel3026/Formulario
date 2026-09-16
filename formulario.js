@@ -32,7 +32,7 @@ function mostrarToast(msg, tipo) {
 // Se incorreta → mostra mensagem de erro.
 function fazerLogin() {
     const senha = $('senhaLogin').value;                // Pega o valor digitado
-    const SENHA_CORRETA = 'secretara1234';              // Senha definida da secretaria
+    const SENHA_CORRETA = 'secretaria1234';              // Senha definida da secretaria
 
     // Compara a senha digitada com a correta
     if (senha === SENHA_CORRETA) {
