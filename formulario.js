@@ -114,7 +114,7 @@ function toggleNis() {
 // Se não houver números válidos, retorna null.
 function mediaDe(...nums) {
     // Filtra apenas valores não vazios, não nulos e numéricos
-    const vals = nums.filter(n => n !== '' && n !== null && !isNaN(parseFloat(n)));
+    const vals = nums.filter(n => n !== '' && n !== null && !isNaN(parseFloat(n)) && parseFloat(n) <= 100);
     if (vals.length === 0) return null;                 // Sem valores válidos → null
     // Soma todos (convertendo para float) e divide pela quantidade
     return vals.reduce((a, b) => a + parseFloat(b), 0) / vals.length;
