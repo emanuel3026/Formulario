@@ -113,24 +113,25 @@ function toggleNis() {
 // Recebe vários números, ignora vazios/inválidos e retorna a média.
 // Se não houver números válidos, retorna null.
 function mediaDe(...nums) { 
-  // Filtra valores válidos, finitos, numéricos, <= 100 e ignora a palavra "numero"
+  // Filtra valores válidos, sem a letra 'e', menores ou iguais a 100
   const vals = nums.filter(n => {
-    // Ignora strings vazias ou nulas logo de início
-    if (n === '' || n === null) return false;
+    // Ignora logo se for vazio, nulo ou indefinido
+    if (n === '' || n === null || n === undefined) return false;
 
-    // Se for string, transforma em minúsculo para comparar
     const strVal = String(n).toLowerCase().trim();
-    if (strVal === 'numero') return false;
+
+    // Bloqueia se contiver a letra 'e' (evita 'numero', '1e2000', '1e2', etc.)
+    if (strVal.includes('e')) return false;
 
     const num = parseFloat(n);
 
-    // Garante que é um número válido, não é NaN, é FINITO e menor ou igual a 100
+    // Garante que é um número real válido, finito e menor ou igual a 100
     return !isNaN(num) && isFinite(num) && num <= 100;
   }); 
 
   if (vals.length === 0) return null; // Sem valores válidos → null 
 
-  // Soma todos (convertendo para float) e divide pela quantidade 
+  // Soma todos os valores válidos e divide pela quantidade 
   return vals.reduce((a, b) => a + parseFloat(b), 0) / vals.length;
 }
 
