@@ -128,13 +128,14 @@ function mediaDe(...nums) {
   return vals.reduce((a, b) => a + parseFloat(b), 0) / vals.length;
 }
 
+// Selecione o seu campo de input (substitua pelo ID correto do seu HTML)
+const inputNumero = document.querySelector('#seu-input-id');
 
-const meuInput = document.querySelector('#id-do-seu-input');
-
-meuInput.addEventListener('input', (e) => {
-  // Substitui qualquer número (0-9) por nada em tempo real
-  e.target.value = e.target.value.replace(/[0-9]/g, '');
+inputNumero.addEventListener('input', (e) => {
+  // Remove tudo o que NÃO for número (0-9)
+  e.target.value = e.target.value.replace(/[^0-9]/g, '');
 });
+
 // ============================================================
 // FUNÇÃO: CALCULAR MÉDIAS (LP, MATEMÁTICA E FINAL)
 // ============================================================
