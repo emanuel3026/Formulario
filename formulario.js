@@ -129,7 +129,7 @@ function mediaDe(...nums) {
 }
 
 // Selecione o seu campo de input (substitua pelo ID correto do seu HTML)
-const inputNumero = document.querySelector('#seu-input-id');
+const inputNumero = document.querySelector('#mediaFinal');
 
 inputNumero.addEventListener('input', (e) => {
   // Remove tudo o que NÃO for número (0-9)
