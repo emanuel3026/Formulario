@@ -113,8 +113,8 @@ function toggleNis() {
 // Recebe vários números, ignora vazios/inválidos e retorna a média.
 // Se não houver números válidos, retorna null.
 function mediaDe(...nums) { 
-  // Filtra apenas se o tipo original do dado for um número válido menor ou igual a 100
-  const vals = nums.filter(n => typeof n === 'number' && !isNaN(n) && n <= 100); 
+  // Filtra apenas números válidos que estão estritamente entre 0 e 100
+  const vals = nums.filter(n => typeof n === 'number' && !isNaN(n) && n >= 0 && n <= 100); 
 
   if (vals.length === 0) return null; 
 
@@ -126,10 +126,22 @@ function mediaDe(...nums) {
 const inputNumero = document.querySelector('#mediaFinal');
 
 inputNumero.addEventListener('input', (e) => {
-  // Permite apenas dígitos de 0 a 9. Se quiser permitir números decimais (com vírgula ou ponto), avise!
-  e.target.value = e.target.value.replace(/\D/g, '');
+  // 1. Remove qualquer caractere que não seja dígito (0-9)
+  let valor = e.target.value.replace(/\D/g, '');
+  
+  // 2. Converte para número para validar o limite máximo
+  if (valor !== '') {
+    const numero = parseInt(valor, 10);
+    
+    // Se o número for maior que 100, força o valor a ser 100
+    if (numero > 100) {
+      valor = '100';
+    }
+  }
+  
+  // Atualiza o valor do input na tela
+  e.target.value = valor;
 });
-
 // ============================================================
 // FUNÇÃO: CALCULAR MÉDIAS (LP, MATEMÁTICA E FINAL)
 // ============================================================
