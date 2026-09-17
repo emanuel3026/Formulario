@@ -113,27 +113,21 @@ function toggleNis() {
 // Recebe vários números, ignora vazios/inválidos e retorna a média.
 // Se não houver números válidos, retorna null.
 function mediaDe(...nums) { 
-  // Filtra valores válidos, numéricos, menores ou iguais a 100 e ignora a palavra "numero"
-  const vals = nums.filter(n => {
-    // Se for string, transforma em minúsculo para comparar
-    const strVal = String(n).toLowerCase().trim();
-    if (strVal === 'numero') return false;
+  // Filtra apenas se o tipo original do dado for um número válido menor ou igual a 100
+  const vals = nums.filter(n => typeof n === 'number' && !isNaN(n) && n <= 100); 
 
-    return n !== '' && n !== null && !isNaN(parseFloat(n)) && parseFloat(n) <= 100;
-  }); 
+  if (vals.length === 0) return null; 
 
-  if (vals.length === 0) return null; // Sem valores válidos → null 
-
-  // Soma todos (convertendo para float) e divide pela quantidade 
-  return vals.reduce((a, b) => a + parseFloat(b), 0) / vals.length;
+  // Soma todos os números e divide pela quantidade 
+  return vals.reduce((a, b) => a + b, 0) / vals.length;
 }
 
-// Selecione o seu campo de input (substitua pelo ID correto do seu HTML)
+// Selecione o seu campo de input
 const inputNumero = document.querySelector('#mediaFinal');
 
 inputNumero.addEventListener('input', (e) => {
-  // Remove tudo o que NÃO for número (0-9)
-  e.target.value = e.target.value.replace(/[^0-9]/g, '');
+  // Permite apenas dígitos de 0 a 9. Se quiser permitir números decimais (com vírgula ou ponto), avise!
+  e.target.value = e.target.value.replace(/\D/g, '');
 });
 
 // ============================================================
