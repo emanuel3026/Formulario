@@ -32,7 +32,7 @@ function mostrarToast(msg, tipo) {
 // Se incorreta → mostra mensagem de erro.
 function fazerLogin() {
     const senha = $('senhaLogin').value;                // Pega o valor digitado
-    const SENHA_CORRETA = 'secretara1234';              // Senha definida da secretaria
+    const SENHA_CORRETA = 'secretaria1234';              // Senha definida da secretaria
 
     // Compara a senha digitada com a correta
     if (senha === SENHA_CORRETA) {
@@ -112,13 +112,29 @@ function toggleNis() {
 // ============================================================
 // Recebe vários números, ignora vazios/inválidos e retorna a média.
 // Se não houver números válidos, retorna null.
-function mediaDe(...nums) {
-    // Filtra apenas valores não vazios, não nulos e numéricos
-    const vals = nums.filter(n => n !== '' && n !== null && !isNaN(parseFloat(n)));
-    if (vals.length === 0) return null;                 // Sem valores válidos → null
-    // Soma todos (convertendo para float) e divide pela quantidade
-    return vals.reduce((a, b) => a + parseFloat(b), 0) / vals.length;
+function mediaDe(...nums) { 
+  // Filtra valores válidos, numéricos, menores ou iguais a 100 e ignora a palavra "numero"
+  const vals = nums.filter(n => {
+    // Se for string, transforma em minúsculo para comparar
+    const strVal = String(n).toLowerCase().trim();
+    if (strVal === 'numero') return false;
+
+    return n !== '' && n !== null && !isNaN(parseFloat(n)) && parseFloat(n) <= 100;
+  }); 
+
+  if (vals.length === 0) return null; // Sem valores válidos → null 
+
+  // Soma todos (convertendo para float) e divide pela quantidade 
+  return vals.reduce((a, b) => a + parseFloat(b), 0) / vals.length;
 }
+
+// Selecione o seu campo de input (substitua pelo ID correto do seu HTML)
+const inputNumero = document.querySelector('#seu-input-id');
+
+inputNumero.addEventListener('input', (e) => {
+  // Remove tudo o que NÃO for número (0-9)
+  e.target.value = e.target.value.replace(/[^0-9]/g, '');
+});
 
 // ============================================================
 // FUNÇÃO: CALCULAR MÉDIAS (LP, MATEMÁTICA E FINAL)
