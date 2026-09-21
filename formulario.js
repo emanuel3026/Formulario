@@ -120,7 +120,7 @@ function mediaDe(...nums) {
   return vals.reduce((a, b) => a + b, 0) / vals.length;}
 
 // Selecione o seu campo de input
-const inputNumero = document.querySelector('#mediaFinalInput');
+/*const inputNumero = document.querySelector('#mediaFinalInput');
 if (inputNumero) {
   inputNumero.addEventListener('input', (e) => {
     let valor = e.target.value.replace(/\D/g, '');
@@ -128,7 +128,7 @@ if (inputNumero) {
     e.target.value = valor;
     calcularPontuacao();
   });
-}
+}*/
 // ============================================================
 // FUNÇÃO: CALCULAR MÉDIAS (LP, MATEMÁTICA E FINAL)
 // ============================================================
