@@ -122,15 +122,25 @@ function mediaDe(...nums) {
   return vals.reduce((a, b) => a + b, 0) / vals.length;
 }
 // Selecione o seu campo de input
-const inputNumero = document.querySelector('#mediaFinalInput');
-if (inputNumero) {
-  inputNumero.addEventListener('input', (e) => {
-    let valor = e.target.value.replace(/\D/g, '');
-    if (valor !== '' && parseInt(valor, 10) > 100) valor = '100';
-    e.target.value = valor;
-    calcularPontuacao();
-  });
-}
+const inputNumero = document.querySelector('#mediaFinal');
+
+inputNumero.addEventListener('input', (e) => {
+  // 1. Remove qualquer caractere que não seja dígito (0-9)
+  let valor = e.target.value.replace(/\D/g, '');
+  
+  // 2. Converte para número para validar o limite máximo
+  if (valor !== '') {
+    const numero = parseInt(valor, 10);
+    
+    // Se o número for maior que 100, força o valor a ser 100
+    if (numero > 100) {
+      valor = '100';
+    }
+  }
+  
+  // Atualiza o valor do input na tela
+  e.target.value = valor;
+});
 // ============================================================
 // FUNÇÃO: CALCULAR MÉDIAS (LP, MATEMÁTICA E FINAL)
 // ============================================================
