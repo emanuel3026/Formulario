@@ -112,36 +112,23 @@ function toggleNis() {
 // ============================================================
 // Recebe vários números, ignora vazios/inválidos e retorna a média.
 // Se não houver números válidos, retorna null.
-function mediaDe(...nums) { 
-  // Filtra apenas números válidos que estão estritamente entre 0 e 100
-  const vals = nums.filter(n => typeof n === 'number' && !isNaN(n) && n >= 0 && n <= 100); 
-
-  if (vals.length === 0) return null; 
-
-  // Soma todos os números e divide pela quantidade 
-  return vals.reduce((a, b) => a + b, 0) / vals.length;
-}
+function mediaDe(...nums) {
+  const vals = nums
+    .map(n => parseFloat(n))
+    .filter(n => !isNaN(n) && n >= 0 && n <= 100);
+  if (vals.length === 0) return null;
+  return vals.reduce((a, b) => a + b, 0) / vals.length;}
 
 // Selecione o seu campo de input
-const inputNumero = document.querySelector('#mediaFinal');
-
-inputNumero.addEventListener('input', (e) => {
-  // 1. Remove qualquer caractere que não seja dígito (0-9)
-  let valor = e.target.value.replace(/\D/g, '');
-  
-  // 2. Converte para número para validar o limite máximo
-  if (valor !== '') {
-    const numero = parseInt(valor, 10);
-    
-    // Se o número for maior que 100, força o valor a ser 100
-    if (numero > 100) {
-      valor = '100';
-    }
-  }
-  
-  // Atualiza o valor do input na tela
-  e.target.value = valor;
-});
+const inputNumero = document.querySelector('#mediaFinalInput');
+if (inputNumero) {
+  inputNumero.addEventListener('input', (e) => {
+    let valor = e.target.value.replace(/\D/g, '');
+    if (valor !== '' && parseInt(valor, 10) > 100) valor = '100';
+    e.target.value = valor;
+    calcularPontuacao();
+  });
+}
 // ============================================================
 // FUNÇÃO: CALCULAR MÉDIAS (LP, MATEMÁTICA E FINAL)
 // ============================================================
@@ -311,11 +298,17 @@ function salvarInscricao() {
 // FUNÇÃO: IMPRIMIR
 // ============================================================
 function imprimirInscricao() {
-    if (!$('nome').value.trim()) {
-        mostrarToast('⚠️ Preencha os dados antes de imprimir.', 'info');
-    }
-    window.print();                                     // Abre diálogo de impressão
+  if (!$('nome').value.trim()) {
+    mostrarToast('⚠️ Preencha os dados antes de imprimir.', 'info');
+    return;
+  }
+  if ($('comprovante').style.display !== 'block') {
+    mostrarToast('⚠️ Salve a inscrição antes de imprimir.', 'info');
+    return;
+  }
+  window.print();
 }
+
 
 // ============================================================
 // FUNÇÃO: LIMPAR FORMULÁRIO
@@ -372,14 +365,49 @@ function inicializar() {
         $('nome').value = ultima.nome || '';               // Preenche nome
         $('numeroInscricao').value = ultima.numero || '';  // Preenche número
     }
+    
+// ---------- Contador sequencial ----------
+function gerarInscricao() {
+  const existente = $('numeroInscricao').value;
+  if (existente && existente !== 'Gerado automaticamente') return existente;
 
-    // Define a data de inscrição como hoje
-    const hoje = new Date().toISOString().split('T')[0]; // Formato YYYY-MM-DD
-    if ($('dataInscricao')) {
-        $('dataInscricao').value = hoje;
-    }
+  const ano = new Date().getFullYear();
+  const chave = `contadorLDV_${ano}`;
+  let seq = parseInt(localStorage.getItem(chave)) || 0;
+  seq += 1;
+  localStorage.setItem(chave, seq);
+
+  const codigo = `LDV-${ano}-${String(seq).padStart(4, '0')}`;
+  $('numeroInscricao').value = codigo;
+  return codigo;
 }
+    // Define a data de inscrição como hoje
+   function dataHojeLocal() {
+  const d = new Date();
+  const mes = String(d.getMonth() + 1).padStart(2, '0');
+  const dia = String(d.getDate()).padStart(2, '0');
+  return `${d.getFullYear()}-${mes}-${dia}`;
+}
+    
+function inicializar() {
+  const dadosParteI = JSON.parse(localStorage.getItem('inscricaoParteI') || 'null');
+  if (dadosParteI) {
+    $('nome').value = dadosParteI.nome || '';
+    $('rg').value = dadosParteI.rg || '';
+    $('cpf').value = dadosParteI.cpf || '';
+  }
 
+  const inscricoes = JSON.parse(localStorage.getItem('inscricoesLDV') || '[]');
+  if (inscricoes.length > 0) {
+    const ultima = inscricoes[inscricoes.length - 1];
+    $('nome').value = ultima.nome || '';
+    $('numeroInscricao').value = ultima.numero || '';
+  }
+
+  if ($('dataInscricao')) {
+    $('dataInscricao').value = dataHojeLocal();   // ← local, não UTC
+  }
+}
 // ============================================================
 // EVENTO: DOM CARREGADO
 // ============================================================
