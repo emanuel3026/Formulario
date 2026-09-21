@@ -112,15 +112,17 @@ function toggleNis() {
 // ============================================================
 // Recebe vários números, ignora vazios/inválidos e retorna a média.
 // Se não houver números válidos, retorna null.
-function mediaDe(...nums) {
-  const vals = nums
-    .map(n => parseFloat(n))
-    .filter(n => !isNaN(n) && n >= 0 && n <= 100);
-  if (vals.length === 0) return null;
-  return vals.reduce((a, b) => a + b, 0) / vals.length;}
+function mediaDe(...nums) { 
+  // Filtra apenas números válidos que estão estritamente entre 0 e 100
+  const vals = nums.filter(n => typeof n === 'number' && !isNaN(n) && n >= 0 && n <= 100); 
 
+  if (vals.length === 0) return null; 
+
+  // Soma todos os números e divide pela quantidade 
+  return vals.reduce((a, b) => a + b, 0) / vals.length;
+}
 // Selecione o seu campo de input
-/*const inputNumero = document.querySelector('#mediaFinalInput');
+const inputNumero = document.querySelector('#mediaFinalInput');
 if (inputNumero) {
   inputNumero.addEventListener('input', (e) => {
     let valor = e.target.value.replace(/\D/g, '');
@@ -128,7 +130,7 @@ if (inputNumero) {
     e.target.value = valor;
     calcularPontuacao();
   });
-}*/
+}
 // ============================================================
 // FUNÇÃO: CALCULAR MÉDIAS (LP, MATEMÁTICA E FINAL)
 // ============================================================
